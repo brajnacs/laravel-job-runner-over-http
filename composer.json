@@ -1,0 +1,54 @@
+{
+    "name": "brajmohan/laravel-job-runner-over-http",
+    "description": "Exposes all Laravel jobs over an HTTP endpoint",
+    "keywords": [
+        "brajmohan",
+        "laravel-job-runner-over-http"
+    ],
+    "homepage": "https://github.com/brajmohan/laravel-job-runner-over-http",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Braj Mohan",
+            "email": "brajnacs@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.3|^7.4|^8.0",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "BrajMohan\\LaravelJobRunnerOverHttp\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "BrajMohan\\LaravelJobRunnerOverHttp\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit --colors=always",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "BrajMohan\\LaravelJobRunnerOverHttp\\LaravelJobRunnerOverHttpServiceProvider"
+            ],
+            "aliases": {
+                "LaravelJobRunnerOverHttp": "BrajMohan\\LaravelJobRunnerOverHttp\\LaravelJobRunnerOverHttpFacade"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
