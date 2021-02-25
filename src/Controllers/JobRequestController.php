@@ -25,12 +25,14 @@ class JobRequestController extends Controller
         }
 
         Log::info("Processed: " . $jobClassName);
+
         return response($jobClassName);
     }
 
     public function getJobClass($connectionName, $queueName): string
     {
         $queues = $this->getQueueList($this->getConnectionName($connectionName));
+
         return $queues[$queueName];
     }
 
@@ -41,6 +43,7 @@ class JobRequestController extends Controller
         }
 
         $queueName = config("queue.connections.${connectionName}.queue");
+
         return [$queueName => $queueName];
     }
 
@@ -48,6 +51,7 @@ class JobRequestController extends Controller
     {
         try {
             [$class, $method] = JobName::parse($payload['job']);
+
             return class_exists($class);
         } catch (\Exception $e) {
             return false;
@@ -75,6 +79,7 @@ class JobRequestController extends Controller
     private function getCommand($payload)
     {
         $command = unserialize($payload['data']['command']);
+
         return $command;
     }
 }

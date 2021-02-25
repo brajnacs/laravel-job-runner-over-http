@@ -8,7 +8,9 @@ use Illuminate\Queue\SerializesModels;
 
 class SampleEvent implements ShouldQueue
 {
-    use InteractsWithQueue, Queueable, SerializesModels;
+    use InteractsWithQueue;
+    use Queueable;
+    use SerializesModels;
 
     public $topic;
 

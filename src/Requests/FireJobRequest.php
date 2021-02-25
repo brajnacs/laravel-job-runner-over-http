@@ -26,7 +26,7 @@ class FireJobRequest extends FormRequest
         return [
             'connection' => 'nullable|string',
             'queue' => 'required|string',
-            'payload' => 'required'
+            'payload' => 'required',
         ];
     }
 }

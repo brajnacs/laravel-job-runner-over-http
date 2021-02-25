@@ -35,7 +35,7 @@ class JobRequestControllerTest extends TestCase
         $jobRequest->setMethod('POST');
         $jobRequest->request->add([
             'queue' => '/queue/ApplicationQueue',
-            'payload' => json_encode(['foo' => 'bar'])
+            'payload' => json_encode(['foo' => 'bar']),
         ]);
 
         $response = $jobRequestController->fireJob($jobRequest);
